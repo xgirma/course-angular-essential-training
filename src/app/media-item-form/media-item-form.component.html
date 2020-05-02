@@ -8,8 +8,7 @@
     <li>
       <label for="medium">Medium</label>
       <select name="medium" id="medium" formControlName="medium">
-        <option value="Movies">Movies</option>
-        <option value="Series">Series</option>
+        <option *ngFor="let medium of lookupLists.mediums" [value]="medium">{{medium}}</option>
       </select>
     </li>
     <li>
@@ -32,5 +31,5 @@
       <input type="text" name="year" id="year" maxlength="4" formControlName="year">
     </li>
   </ul>
-  <button type="submit">Save</button>
+  <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
